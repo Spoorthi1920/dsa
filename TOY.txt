@@ -1,0 +1,38 @@
+QQ: A toy factor is packing toys in aboxes. Each box can contain either a toy( represented by an integer value) or be empty ( represented by 0). Write a function to move all the empty boxes to the end of the array while maintaing the order of the toys and also return the count of the empty boxes. 
+CODE:
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] a = new int[n];
+         int cnt=0;
+        for(int i=0;i<n;i++){
+            a[i] = sc.nextInt();
+        }
+         for(int i=0;i<n;i++){
+           System.out.print("Array: "+a[i]);
+        }
+        //int cnt=0;
+        int i=0,j=i+1;
+        while(i<n && j<n){
+            if(a[j]>0){
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+                i++;
+            }
+            else if (a[i]==0 && a[j]==0){
+                j++;
+            }
+            else{
+                i++;
+                j++;
+            }
+        }
+         for(int k=0;k<n;k++){
+           System.out.print("Array: "+a[k]);
+        }
+        System.out.print("count: "+cnt);
+    }
+}
